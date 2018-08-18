@@ -8,11 +8,19 @@ provider:
   environment:
     TELEGRAM_TOKEN: ${env:TELEGRAM_TOKEN}
 
-
+package:
+  exclude:
+    - .git/**
+    - .travis.yml
+    - tox.ini
+    - .tox/**
+    - requirements.txt
+    - .gitignore
+    - README.rst
 
 functions:
   post:
-    handler: bot.bot
+    handler: bot.webcomic_bot
     events:
       - http:
           path: my-custom-url
